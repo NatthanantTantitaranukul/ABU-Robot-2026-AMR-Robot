@@ -3,7 +3,7 @@ build/
 install/
 log/
 
-# cad files
+# CAD files
 *.step
 *.assm
 *.sldprt
@@ -13,6 +13,4 @@ log/
 .colcon_install_layout
 *.log
 
-# But ignore Python cache inside src
-src/**/__pycache__/
-src/**/*.py[cod]
+.vscode
