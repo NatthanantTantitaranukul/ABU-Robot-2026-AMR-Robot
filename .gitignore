@@ -1,0 +1,18 @@
+# ROS 2 generated files
+build/
+install/
+log/
+
+# cad files
+*.step
+*.assm
+*.sldprt
+
+# ROS 2 / colcon generated files
+.colcon/
+.colcon_install_layout
+*.log
+
+# But ignore Python cache inside src
+src/**/__pycache__/
+src/**/*.py[cod]
