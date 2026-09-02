@@ -44,3 +44,15 @@ The **R1 Delta** project was discontinued before the final manufacturing and tes
 Although the robot was not completed for competition, the project provided practical experience in mechanical design, system integration, material selection, and iterative development under competition requirements. The team subsequently decided to shift its focus to another competition.
 
 Currently The team is focusing on replicating the robot for use in simulation, currently on gazebo harmonic and rviz2 alone.
+
+## Digital Twining
+
+For simulating the robot in gazebo and rviz, follow these steps:
+
+```bash
+cd ~/<ros2_ws>
+git clone https://github.com/LAIR-Lab/Sensor_observability_analysis_camera.git
+colcon build
+source install/setup.bash
+```
+
