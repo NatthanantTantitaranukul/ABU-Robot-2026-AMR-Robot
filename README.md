@@ -51,8 +51,14 @@ For simulating the robot in gazebo and rviz, follow these steps:
 
 ```bash
 cd ~/<ros2_ws>
-git clone https://github.com/LAIR-Lab/Sensor_observability_analysis_camera.git
+git clone https://github.com/NatthanantTantitaranukul/ABU-Robot-2026-AMR-Robot.git
 colcon build
 source install/setup.bash
+```
+
+Currently only MK_3 arm has been completed. You can visualize it as follows:
+
+```bash
+ros2 launch urdf_tutorial display.launch.py model:=src/digital_twin/urdf/MK_3.urdf.xacro
 ```
 
