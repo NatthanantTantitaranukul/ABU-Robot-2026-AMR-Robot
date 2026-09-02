@@ -7,7 +7,7 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 
-install(DIRECTORY urdf meshes launch rviz config
+install(DIRECTORY urdf meshes launch config
   DESTINATION share/${PROJECT_NAME}
 )
 

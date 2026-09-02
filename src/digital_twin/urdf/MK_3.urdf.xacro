@@ -1,4 +1,455 @@
-<!-- waiting on lius cad design -->
-<robot name="abu_robot">
-    
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot
+  name="MK_3">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-2.614E-12 -0.014338 0.076588"
+        rpy="0 0 0" />
+      <mass
+        value="0.89676" />
+      <inertia
+        ixx="0.0029132"
+        ixy="9.1838E-14"
+        ixz="-6.9618E-14"
+        iyy="0.0051542"
+        iyz="-8.7453E-07"
+        izz="0.0024199" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital_twin/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital_twin/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Rotator">
+    <inertial>
+      <origin
+        xyz="0.00832223518951668 0.0533317908359785 -1.67328065465988E-13"
+        rpy="0 0 0" />
+      <mass
+        value="0.532269733433987" />
+      <inertia
+        ixx="0.000769797367334732"
+        ixy="-2.84652485589737E-19"
+        ixz="-8.93588486896874E-14"
+        iyy="0.00143435769647691"
+        iyz="3.95143788367136E-20"
+        izz="0.00158917704576289" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital_twin/meshes/Rotator.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital_twin/meshes/Rotator.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_0"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5708 0 -0.07149" />
+    <parent
+      link="base_link" />
+    <child
+      link="Rotator" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.49"
+      upper="1.66"
+      effort="10"
+      velocity="10" />
+  </joint>
+  <link
+    name="Under_arm">
+    <inertial>
+      <origin
+        xyz="-0.00209749548543436 0.0601447609685374 -0.141411988419937"
+        rpy="0 0 0" />
+      <mass
+        value="1.68445759514121" />
+      <inertia
+        ixx="0.00500295171907744"
+        ixy="9.96177432275817E-07"
+        ixz="-2.34406332677419E-06"
+        iyy="0.005153605711482"
+        iyz="0.0014883926767954"
+        izz="0.00228386611519836" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital_twin/meshes/Under_arm.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital_twin/meshes/Under_arm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_1"
+    type="revolute">
+    <origin
+      xyz="0 0.10719 0"
+      rpy="-0.44821 0 0" />
+    <parent
+      link="Rotator" />
+    <child
+      link="Under_arm" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-0.65"
+      upper="2.65"
+      effort="10"
+      velocity="10" />
+  </joint>
+  <link
+    name="Upper_arm">
+    <inertial>
+      <origin
+        xyz="-0.0054902424312099 0.0818395980979168 0.127092205468036"
+        rpy="0 0 0" />
+      <mass
+        value="1.25059268398364" />
+      <inertia
+        ixx="0.00703359321865347"
+        ixy="8.40257835641074E-14"
+        ixz="4.87544615681949E-13"
+        iyy="0.00664799430506723"
+        iyz="-0.00145068237099487"
+        izz="0.00141574326428778" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital_twin/meshes/Upper_arm.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital_twin/meshes/Upper_arm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_2"
+    type="revolute">
+    <origin
+      xyz="0 0.11734 -0.2761"
+      rpy="0.52834 0 0" />
+    <parent
+      link="Under_arm" />
+    <child
+      link="Upper_arm" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-4"
+      upper="0"
+      effort="10"
+      velocity="10" />
+  </joint>
+  <link
+    name="EE_rotator">
+    <inertial>
+      <origin
+        xyz="3.20689889057348E-06 -0.00390688270197542 0.021158028835835"
+        rpy="0 0 0" />
+      <mass
+        value="0.252363840532265" />
+      <inertia
+        ixx="0.000181741952478104"
+        ixy="7.13189472167223E-06"
+        ixz="1.31689205199227E-06"
+        iyy="0.000446008773430954"
+        iyz="6.3077100397889E-06"
+        izz="0.00041301280533603" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital_twin/meshes/EE_rotator.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital_twin/meshes/EE_rotator.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_3"
+    type="revolute">
+    <origin
+      xyz="0 0.10845 0.28834"
+      rpy="-0.36956 0.0050751 0.02682" />
+    <parent
+      link="Upper_arm" />
+    <child
+      link="EE_rotator" />
+    <axis
+      xyz="0.99963 -0.026839 -0.0049558" />
+    <limit
+      lower="-1.8"
+      upper="2"
+      effort="10"
+      velocity="10" />
+  </joint>
+  <link
+    name="EE_effector">
+    <inertial>
+      <origin
+        xyz="0.000243881701395048 -0.0196232868802083 0.148311418380929"
+        rpy="0 0 0" />
+      <mass
+        value="1.08242324351808" />
+      <inertia
+        ixx="0.00166708823124283"
+        ixy="2.05337040606625E-05"
+        ixz="3.79063048928672E-06"
+        iyy="0.0024150350921014"
+        iyz="0.000246032819244319"
+        izz="0.00112802441471166" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital_twin/meshes/EE_effector.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital_twin/meshes/EE_effector.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_4"
+    type="revolute">
+    <origin
+      xyz="0 -0.0041237 0.022332"
+      rpy="-0.0001209 -0.0066808 0.03619" />
+    <parent
+      link="EE_rotator" />
+    <child
+      link="EE_effector" />
+    <axis
+      xyz="0 0.18158 -0.98338" />
+    <limit
+      lower="-1.45"
+      upper="1.45"
+      effort="10"
+      velocity="10" />
+  </joint>
+  <link
+    name="Jaw_right">
+    <inertial>
+      <origin
+        xyz="-0.10554004646236 0.310548626454889 0.317394756215972"
+        rpy="0 0 0" />
+      <mass
+        value="0.479027528414459" />
+      <inertia
+        ixx="0.00219714041845617"
+        ixy="-6.35680544017577E-06"
+        ixz="0.000444591822500905"
+        iyy="0.00485521465492216"
+        iyz="0.000378659410516348"
+        izz="0.00280739999257736" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital_twin/meshes/Jaw_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital_twin/meshes/Jaw_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gripper_joint_0"
+    type="prismatic">
+    <origin
+      xyz="0.16248 -0.34222 -0.035375"
+      rpy="0 0 0" />
+    <parent
+      link="EE_effector" />
+    <child
+      link="Jaw_right" />
+    <axis
+      xyz="0.99963 -0.026839 -0.0049558" />
+    <limit
+      lower="-0.045"
+      upper="0.162"
+      effort="10"
+      velocity="10" />
+  </joint>
+  <link
+    name="Jaw_left">
+    <inertial>
+      <origin
+        xyz="0.125215497715907 0.301020077840735 0.316520636753305"
+        rpy="0 0 0" />
+      <mass
+        value="0.479027528414458" />
+      <inertia
+        ixx="0.00219714041845615"
+        ixy="0.000156013324876304"
+        ixz="-0.000434756361534094"
+        iyy="0.00484649569493953"
+        iyz="0.000401464083050061"
+        izz="0.00281611895255998" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital_twin/meshes/Jaw_left.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital_twin/meshes/Jaw_left.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gripper_joint_1"
+    type="prismatic">
+    <origin
+      xyz="-0.18107 -0.33299 -0.033672"
+      rpy="0 0 0" />
+    <parent
+      link="EE_effector" />
+    <child
+      link="Jaw_left" />
+    <axis
+      xyz="0.99963 -0.026839 -0.0049558" />
+    <limit
+      lower="0"
+      upper="1"
+      effort="10"
+      velocity="10" />
+    <mimic
+      joint="gripper_joint_0"
+      multiplier="-1"
+      offset="0" />
+  </joint>
 </robot>
